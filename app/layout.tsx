@@ -73,7 +73,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-orange-200">
-      <body className={`${GeistSans.className} flex`}>
+      <body className={`${GeistSans.className}`}>
         <div className="main">
           <div className="gradient" />
         </div>
