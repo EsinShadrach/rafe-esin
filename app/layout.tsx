@@ -30,12 +30,6 @@ export const metadata: Metadata = {
     description:
       "Explore the portfolio of Shadrach Esin, showcasing creative works and projects.",
     siteName: "Shadrach Esin Portfolio",
-    images: [
-      {
-        url: "https://rafe-esin.vercel.app/og-image.png",
-        alt: "Shadrach Esin Portfolio",
-      },
-    ],
     locale: "en_US",
     emails: [
       "esinshadrachrafe@gmail.com",
@@ -60,7 +54,6 @@ export const metadata: Metadata = {
   },
   abstract:
     "Explore the creative journey and professional accomplishments of Shadrach Esin through an impressive portfolio of design, development, and other creative projects.",
-  assets: ["https://rafe-esin.vercel.app/css/style.css"],
   category: "Portfolio",
   classification: "Personal Portfolio",
   robots: { index: true, follow: true },
