@@ -10,7 +10,7 @@ export default function HomePage() {
       )}
     >
       <div className={cn("typewriter w-fit text-center mx-auto pt-12")}>
-        <TypographyH1 className="">Hi, I&rsquo;m Rafe Esin...</TypographyH1>
+        <TypographyH1 className="">Hi, I&rsquo;m Shadrach Esin...</TypographyH1>
       </div>
       <div>Some Stuff here</div>
     </section>
