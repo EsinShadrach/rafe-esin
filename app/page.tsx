@@ -9,7 +9,7 @@ export default function HomePage() {
         "w-full h-full space-y-6"
       )}
     >
-      <div className={cn("typewriter w-fit text-center mx-auto pt-12")}>
+      <div className={cn("typewwcriter w-fit text-center mx-auto pt-12")}>
         <TypographyH1 className="">Hi, I&rsquo;m Shadrach Esin...</TypographyH1>
       </div>
       <div>Some Stuff here</div>

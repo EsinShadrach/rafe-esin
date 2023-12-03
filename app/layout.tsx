@@ -1,31 +1,34 @@
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { cn } from "~/utils/class-name";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafe-esin.vercel.app"),
   title: "Shadrach Esin - Portfolio",
   description:
-    "Welcome to the portfolio of Shadrach Esin, showcasing creative works and projects. Explore my skills, experience, and accomplishments.",
+    "Explore the portfolio of Shadrach Esin, showcasing creative works and projects. Discover a collection of design, development, and creative endeavors.",
   applicationName: "Shadrach Esin Portfolio",
   authors: [{ name: "Shadrach Esin", url: "https://rafe-esin.vercel.app" }],
   keywords: [
     "Shadrach Esin",
+    "Rafe Esin",
     "Portfolio",
     "Projects",
     "Design",
     "Development",
     "Creative Works",
+    "App Development",
+    "Web Development",
+    "Front End Development",
+    "Back End development",
   ],
   referrer: "origin",
-  themeColor: "#3498db",
   openGraph: {
     type: "website",
     url: "https://rafe-esin.vercel.app",
     title: "Shadrach Esin - Portfolio",
     description:
-      "Welcome to the portfolio of Shadrach Esin, showcasing creative works and projects.",
+      "Explore the portfolio of Shadrach Esin, showcasing creative works and projects.",
     siteName: "Shadrach Esin Portfolio",
     images: [
       {
@@ -34,13 +37,18 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en_US",
+    emails: [
+      "esinshadrachrafe@gmail.com",
+      "shadrachrafeesin@gmail.com",
+      "rafeesin@gmail.com",
+    ],
   },
   twitter: {
     site: "@rafeesin",
     creator: "@rafeesin",
     title: "Shadrach Esin - Portfolio",
     description:
-      "Welcome to the portfolio of Shadrach Esin, showcasing creative works and projects.",
+      "Explore the portfolio of Shadrach Esin, showcasing creative works and projects.",
   },
   appleWebApp: {
     capable: true,
@@ -52,12 +60,10 @@ export const metadata: Metadata = {
   },
   abstract:
     "Explore the creative journey and professional accomplishments of Shadrach Esin through an impressive portfolio of design, development, and other creative projects.",
+  assets: ["https://rafe-esin.vercel.app/css/style.css"],
   category: "Portfolio",
   classification: "Personal Portfolio",
-  other: {
-    industry: ["Web Development", "App Development"],
-    audience: "Clients, Employers, Collaborators",
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
