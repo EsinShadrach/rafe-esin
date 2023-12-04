@@ -12,6 +12,7 @@ import Link from "next/link";
 import { cn } from "~/utils/class-name";
 import { TypographyH1, TypographyH4, TypographyP } from "~/utils/typography";
 import { MyNameIs } from "./MyNameIs";
+import { Navigation } from "./Navigation";
 
 export default function HomePage() {
   return (
@@ -36,7 +37,7 @@ export default function HomePage() {
         </Link>
       </div>
       <MyNameIs />
-      <div className="flex flex-col items-center justify-between sm:flex-row gap-3">
+      <div className="flex flex-col items-center justify-between md:flex-row gap-3">
         <div className="max-w-xl">
           <TypographyH1 className="w-fit">
             Full Stack <span className="text-orange-500">Web</span> &&{" "}
@@ -62,6 +63,7 @@ export default function HomePage() {
           <Globe className="-rotate-[20deg] sm:h-96 sm:w-96 h-60 w-60 globe-animation" />
         </div>
       </div>
+      <Navigation />
     </section>
   );
 }
