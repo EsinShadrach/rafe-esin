@@ -48,7 +48,7 @@ export default function HomePage() {
               {new Date().getFullYear() - 2021}
             </span>{" "}
             years of comprehensive full-stack development, navigating the
-            ever-evolving landscape of web and app creation.
+            ever-evolving landscape of web and app development.
           </TypographyP>
         </div>
         <div className="relative group">
