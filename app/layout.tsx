@@ -1,5 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { ScrollProvider } from "~/utils/scroll-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -67,10 +68,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-orange-200">
       <body className={`${GeistSans.className}`}>
-        <div className="main">
-          <div className="gradient" />
-        </div>
-        {children}
+        <ScrollProvider>
+          <div className="main">
+            <div className="gradient" />
+          </div>
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   );
