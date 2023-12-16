@@ -2,7 +2,7 @@
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 
-export default function scroll() {
+function scroll() {
   const lenis = new Lenis({
     duration: 1.8,
     easing: function (t) {
