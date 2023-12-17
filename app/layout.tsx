@@ -67,7 +67,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-orange-200">
-      <body className={`${GeistSans.className}`}>
+      <body className={`${GeistSans.className} overflow-x-hidden`}>
         <ScrollProvider>
           <div className="main">
             <div className="gradient" />

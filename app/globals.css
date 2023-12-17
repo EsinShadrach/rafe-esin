@@ -156,6 +156,26 @@
 .animate-fade {
   animation: fadeIn 0.5s linear;
 }
+.animate-fade-out {
+  animation: fadeOut 0.5s linear;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    display: hidden;
+  }
+}
 
 @keyframes globeAnimation {
   from {
