@@ -153,11 +153,24 @@
   animation-delay: 3.8s;
 }
 
+.animate-fade {
+  animation: fadeIn 0.5s linear;
+}
+
 @keyframes globeAnimation {
   from {
     @apply text-red-400;
   }
   to {
     @apply text-inherit;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
