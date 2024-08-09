@@ -1,6 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import "./globals.css";
+import { GridLines } from "~/components/utils/lines";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafe-esin.com"),
@@ -66,7 +67,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className}`}>{children}</body>
+      <body className={`${GeistSans.className}`}>
+        <GridLines />
+        <div className="relative z-10">{children}</div>
+      </body>
     </html>
   );
 }
