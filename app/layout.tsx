@@ -1,7 +1,7 @@
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import "./globals.css";
 import { GridLines } from "~/components/utils/lines";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rafe-esin.com"),
