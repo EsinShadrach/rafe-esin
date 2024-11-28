@@ -13,7 +13,7 @@ export function HeroSection() {
         </div>
 
         <div>
-          <h2 className="text-9xl">Hi, I&apos;m</h2>
+          <h2 className="text-9xl">Hi,I&apos;m</h2>
 
           <div className="flex w-full max-w-md bg-red-300 justify-evenly -ml-[4.5rem]">
             <TextsStackedOnEachOther letter="R" />
