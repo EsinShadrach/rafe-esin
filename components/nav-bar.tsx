@@ -16,6 +16,7 @@ export function NavBar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <header
       className={`fixed flex text-white bg-black z-[100]  max-w-fit group transition-all duration-300 ${
