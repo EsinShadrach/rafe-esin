@@ -19,7 +19,7 @@ export function NavBar() {
   return (
     <header
       className={`fixed flex text-white bg-black z-[100]  max-w-fit group transition-all duration-300 ${
-        isScrolled ? "m-5 md:mt-20 gap-0" : "mt-20 gap-3"
+        isScrolled ? "m-5 md:ml-0 md:mt-20 gap-0" : "mt-20 gap-3"
       }`}
     >
       <div
