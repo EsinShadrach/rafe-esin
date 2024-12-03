@@ -51,6 +51,7 @@ function GradientTransparentToBlack() {
     <div className="absolute inset-0 flex items-center justify-center m-3 bg-gradient-to-b from-transparent to-black/75 rounded-md">
       <Link
         href={"https://savecircle.app"}
+        rel="noopener noreferrer"
         className="p-3 overflow-hidden bg-white border border-black opacity-0 group-hover:opacity-100 transition-all duration-300"
       >
         <div className="flex pr-4 text-lg font-semibold gap-1">

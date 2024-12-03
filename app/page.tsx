@@ -2,6 +2,7 @@ import { HeroSection } from "~/components/hero-section";
 import { ArrowRight, DownloadCloud, Sparkles } from "lucide-react";
 import { NavBar } from "~/components/nav-bar";
 import { SlideShowOfWork } from "./_components/slide_show_of_work";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
         <div className="w-full" />
       </div>
       <SlideShowOfWork />
-      <div>
+      <Link href={"/resume.pdf"} rel="noopener noreferrer">
         <div className="flex">
           <div className="w-full" />
           <div className="w-full md:w-0" />
@@ -49,7 +50,7 @@ export default function Home() {
           <div className="w-full" />
           <div className="w-full" />
         </div>
-      </div>
+      </Link>
     </main>
   );
 }
