@@ -21,6 +21,7 @@ export function ProjectCard({
       <Image
         src={image}
         alt={title}
+        placeholder="blur"
         className="object-cover w-full h-full mx-auto"
       />
 
