@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        height: "height 0.5s ease-in-out",
-        width: "width 0.5s ease-in-out",
+        height: "height 1s ease-in-out",
+        width: "width 1s ease-in-out",
       },
       keyframes: {
         height: {
