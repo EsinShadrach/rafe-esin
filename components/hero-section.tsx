@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <div className="pt-40">
+    <div className="pt-[7.5rem] md:pt-40">
       <div className="relative flex w-full py-12 text-center h-96 bg-white/80">
         <div className="absolute inset-x-0 top-0 h-px bg-black animate-width" />
         <div className="absolute inset-y-0 left-0 w-px h-full bg-black animate-height" />
@@ -35,21 +35,20 @@ function TextsStackedOnEachOther({ letter }: { letter: string }) {
       {Array.from({ length: 10 }).map((_, index) => (
         <div
           style={{
-            top: `calc(-1 * ${index} * var(--offset))`,
-            left: `calc(${index} * var(--offset))`,
+            top: `calc(-1 * ${index} * var(--offset-y))`,
+            left: `calc(${index} * var(--offset-x))`,
           }}
-          className={`absolute transition-all duration-300 group-hover:z-20 ${
-            index < 8 ? "[--offset:0.02rem] group-hover:[--offset:0.05rem]" : ""
-          } ${
-            index === 8
-              ? "[--offset:0.04rem] group-hover:[--offset:0.1rem]"
+          className={`absolute transition-all duration-500 ease-out group-hover:z-20 ${index < 8
+            ? "[--offset-x:0.02rem] [--offset-y:0.02rem] group-hover:[--offset-x:0.15rem] group-hover:[--offset-y:0.15rem]"
+            : ""
+            } ${index === 8
+              ? "[--offset-x:0.04rem] [--offset-y:0.04rem] group-hover:[--offset-x:0.3rem] group-hover:[--offset-y:0.3rem]"
               : ""
-          } ${
-            index === 9
-              ? "[--offset:0.02rem] group-hover:[--offset:0.05rem]"
+            } ${index === 9
+              ? "[--offset-x:0.02rem] [--offset-y:0.02rem] group-hover:[--offset-x:0.15rem] group-hover:[--offset-y:0.15rem] group-hover:drop-shadow-2xl group-hover:scale-105"
               : ""
-          } ${index === 9 ? "text-white" : "text-black"}
-          `}
+            } ${index === 9 ? "text-white" : "text-black"} ${index < 9 ? "group-hover:text-gray-600" : ""
+            }`}
           key={index}
         >
           {letter}
