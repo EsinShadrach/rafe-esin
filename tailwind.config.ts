@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "white-bg": "#f8f8f8",
+      },
       animation: {
         height: "height 1s ease-in-out",
         width: "width 1s ease-in-out",

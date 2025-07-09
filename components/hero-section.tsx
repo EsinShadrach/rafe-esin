@@ -1,59 +1,98 @@
+import { SparkleIcon } from "lucide-react"
+
 export function HeroSection() {
   return (
-    <div className="pt-[7.5rem] md:pt-40">
-      <div className="relative flex w-full py-12 text-center h-96 bg-white/80">
+    <div className="pt-[7.5rem] md:pt-40 text-zinc-900">
+      <div className="relative flex w-full py-12 items-center justify-center text-center bg-white/90 min-h-[35rem]">
         <div className="absolute inset-x-0 top-0 h-px bg-black animate-width" />
         <div className="absolute inset-y-0 left-0 w-px h-full bg-black animate-height" />
         <div className="absolute inset-y-0 right-0 w-px h-full bg-black animate-height" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-black animate-width" />
-        <div className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-3xl font-semibold text-white bg-black">
-          <div className="rotate-90 whitespace-nowrap">
-            {new Date().getFullYear() - 2020} Years
+
+        <div className="flex flex-col items-center justify-center w-full h-full gap-8">
+          <div className="short-desc flex mx-auto w-fit gap-2 text-sm md:text-lg font-medium items-center justify-center pr-5">
+            <div>MOBILE APP DEVELOPER</div>
+            <SparkleIcon className="w-4 h-4 animate-pulse" />
+            <div>FULLSTACK DEVELOPER</div>
+            <SparkleIcon className="w-4 h-4 animate-pulse" />
+            <div>SOFTWARE ENGINEER</div>
           </div>
-        </div>
-
-        <div>
-          <h2 className="text-9xl">Hi,I&apos;m</h2>
-
-          <div className="flex w-full max-w-md bg-red-300 justify-evenly -ml-[4.5rem]">
-            <TextsStackedOnEachOther letter="R" />
-            <TextsStackedOnEachOther letter="A" />
-            <TextsStackedOnEachOther letter="F" />
-            <div className="-ml-3">
-              <TextsStackedOnEachOther letter="E" />
+          {/* // Who you are, {e.g Cracked Developer with a } */}
+          <div className="space-y-2">
+            <div className="relative text-4xl md:text-7xl font-black uppercase mx-auto max-w-5xl">
+              {[
+                {
+                  textGray: "text-gray-400",
+                  translateX: "-translate-x-1",
+                  translateY: "translate-y-1",
+                  z: "-z-10",
+                  wowColor: "text-red-300",
+                },
+                {
+                  textGray: "text-gray-500",
+                  translateX: "-translate-x-0.5",
+                  translateY: "translate-y-0.5",
+                  z: "-z-20",
+                  wowColor: "text-red-400",
+                },
+                {
+                  textGray: "text-gray-600",
+                  translateX: "-translate-x-1.5",
+                  translateY: "translate-y-1.5",
+                  z: "-z-30",
+                  wowColor: "text-red-500",
+                },
+                {
+                  textGray: "text-gray-700",
+                  translateX: "-translate-x-2",
+                  translateY: "translate-y-2",
+                  z: "-z-40",
+                  wowColor: "text-red-600",
+                },
+              ].map((layer, idx) => (
+                <div
+                  key={idx}
+                  className={`absolute top-0 left-0 ${layer.textGray} ${layer.translateX} ${layer.translateY} ${layer.z}`}
+                >
+                  I build cross-platform apps that don&apos;t just work, they{" "}
+                  <span className={layer.wowColor}>wow</span>.
+                </div>
+              ))}
+              <div className="relative z-10 text-zinc-900">
+                I build cross-platform apps that don&apos;t just work, they <Text3d text="Wow" />
+              </div>
             </div>
+            <i className="text-base md:text-2xl font-semibold mt-3">— Everytime</i>.
+          </div>
+          <div className="text-lg md:text-2xl font-medium text-zinc-900">
+            Blending design, performance, and <br /> architecture into something you&apos;ll love.
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
-function TextsStackedOnEachOther({ letter }: { letter: string }) {
+
+export default function Text3d({ text }: { text: string }) {
+  const length = 10;
+
   return (
-    <div className="relative font-bold cursor-pointer text-9xl group max-w-min">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <div
-          style={{
-            top: `calc(-1 * ${index} * var(--offset-y))`,
-            left: `calc(${index} * var(--offset-x))`,
-          }}
-          className={`absolute transition-all duration-500 ease-out group-hover:z-20 ${index < 8
-            ? "[--offset-x:0.02rem] [--offset-y:0.02rem] group-hover:[--offset-x:0.15rem] group-hover:[--offset-y:0.15rem]"
-            : ""
-            } ${index === 8
-              ? "[--offset-x:0.04rem] [--offset-y:0.04rem] group-hover:[--offset-x:0.3rem] group-hover:[--offset-y:0.3rem]"
-              : ""
-            } ${index === 9
-              ? "[--offset-x:0.02rem] [--offset-y:0.02rem] group-hover:[--offset-x:0.15rem] group-hover:[--offset-y:0.15rem] group-hover:drop-shadow-2xl group-hover:scale-105"
-              : ""
-            } ${index === 9 ? "text-white" : "text-black"} ${index < 9 ? "group-hover:text-gray-600" : ""
-            }`}
+    <div className="relative inline-block">
+      {Array.from({ length }).map((_, index) => (
+        <span
           key={index}
+          className="absolute text-black"
+          style={{
+            left: `-${index}px`,
+            top: `${index}px`,
+          }}
         >
-          {letter}
-        </div>
+          {text}
+        </span>
       ))}
+      {/* Top layer: the actual text in a different color */}
+      <span className="relative text-white outlined-text">{text}</span>
     </div>
   );
 }

@@ -66,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white-bg">
       <body className={`${GeistSans.className}`}>
         <GridLines />
         <div className="relative z-10">{children}</div>
