@@ -1,4 +1,5 @@
 import { SparkleIcon } from "lucide-react"
+import { TextGenerateEffect } from "./ui/text-generate";
 
 export function HeroSection() {
   return (
@@ -62,10 +63,14 @@ export function HeroSection() {
                 I build cross-platform apps that don&apos;t just work, they <Text3d text="Wow" />
               </div>
             </div>
-            <i className="text-base md:text-2xl font-semibold mt-3">— Everytime</i>.
+            <div className="mt-10">
+
+              <i className="text-base md:text-2xl font-semibold">— Everytime</i>.
+            </div>
           </div>
-          <div className="text-lg md:text-2xl font-medium text-zinc-900">
-            Blending design, performance, and <br /> architecture into something you&apos;ll love.
+          <div className="text-lg md:text-2xl font-medium text-zinc-900 italic">
+            <TextGenerateEffect words="Blending design, performance, and architecture into something you'll love." />
+            {/* Blending design, performance, and <br /> architecture into something you&apos;ll love. */}
           </div>
         </div>
       </div>
