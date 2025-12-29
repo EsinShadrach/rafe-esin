@@ -24,6 +24,18 @@ html {
   background: transparent;
 }
 
+/* Code for most browsers (Chrome, Safari, Opera, Edge) */
+::selection {
+  color: white;
+  background-color: black;
+}
+
+/* Code for Firefox (requires the -moz prefix) */
+::-moz-selection {
+  color: white;
+  background-color: black;
+}
+
 .all-unset {
   all: unset;
 }
@@ -34,7 +46,6 @@ html {
 }
 
 @keyframes sparkle {
-
   0%,
   100% {
     transform: scale(1);
