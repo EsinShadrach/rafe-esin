@@ -35,14 +35,14 @@ export function NavBar() {
   useEffect(() => {
     // Disable/enable body scroll when menu is open/closed
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     // Cleanup function to reset overflow when component unmounts
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
 
@@ -59,12 +59,23 @@ export function NavBar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {/* Hamburger lines */}
-          <div className={`w-8 h-0.5 transition-all duration-300 origin-center ${isMenuOpen ? 'bg-white rotate-45 translate-y-[10px]' : 'bg-black'
-            }`} />
-          <div className={`w-8 h-0.5 transition-all duration-300 ${isMenuOpen ? 'bg-white opacity-0' : 'bg-black opacity-100'
-            }`} />
-          <div className={`w-8 h-0.5 transition-all duration-300 origin-center ${isMenuOpen ? 'bg-white -rotate-45 -translate-y-[10px]' : 'bg-black'
-            }`} />
+          <div
+            className={`w-8 h-0.5 transition-all duration-300 origin-center ${
+              isMenuOpen ? "bg-white rotate-45 translate-y-[10px]" : "bg-black"
+            }`}
+          />
+          <div
+            className={`w-8 h-0.5 transition-all duration-300 ${
+              isMenuOpen ? "bg-white opacity-0" : "bg-black opacity-100"
+            }`}
+          />
+          <div
+            className={`w-8 h-0.5 transition-all duration-300 origin-center ${
+              isMenuOpen
+                ? "bg-white -rotate-45 -translate-y-[10px]"
+                : "bg-black"
+            }`}
+          />
         </div>
         <h2
           className={`flex items-center justify-center transition-all duration-300 text-3xl font-semibold border-l-0 border-white/20
@@ -77,7 +88,10 @@ export function NavBar() {
         </h2>
       </header>
 
-      <NavbarContainer isMenuOpen={isMenuOpen} isContainerVisible={isContainerVisible} />
+      <NavbarContainer
+        isMenuOpen={isMenuOpen}
+        isContainerVisible={isContainerVisible}
+      />
     </>
   );
 }
