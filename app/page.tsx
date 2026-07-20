@@ -1,17 +1,16 @@
 "use client";
-import { HeroSection } from "~/components/hero-section";
+import { SimplexNoise } from "@paper-design/shaders-react";
 import { ArrowRight, DownloadCloud, Sparkles } from "lucide-react";
-import { NavBar } from "~/components/nav-bar";
-import Link from "next/link";
-import { TextGenerateEffect } from "~/components/ui/text-generate";
-import underConstruction from "~/public/under-construction.png";
-import Image from "next/image";
-import ExpertiseSection from "./_components/expertise-section";
 import { motion } from "motion/react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { HeroSection } from "~/components/hero-section";
+import { NavBar } from "~/components/nav-bar";
+import ExpertiseSection from "./_components/expertise-section";
 
 export default function Home() {
   return (
-    <main className="container pb-96 mx-auto">
+    <main className="container mx-auto">
       <NavBar />
 
       <HeroSection />
@@ -41,17 +40,125 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="mt-36 border border-black border-x-black/60 lg:h-[50rem] p-2 flex flex-col items-center justify-center font-black text-9xl text-center"
       >
-        <div className="rounded-xl overflow-hidden w-full h-full">
-          <Image
-            src={underConstruction}
-            placeholder="blur"
-            alt="Under Construction"
-            className="w-full h-full lg:object-cover"
-          />
+        <div className="w-full h-full overflow-hidden">
+          <PoliceTapeDiagonal />
         </div>
       </motion.section>
       <ExpertiseSection />
     </main>
+  );
+}
+
+function PoliceTapeDiagonal() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const update = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight,
+        });
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Calculate perfect corner-to-corner angle dynamically
+  const angle =
+    dimensions.width > 0
+      ? Math.atan2(dimensions.height, dimensions.width) * (180 / Math.PI)
+      : 35; // Fallback for initial render
+
+  // Pythagorean theorem for the length, plus 200px padding to hide the edges safely
+  const diagLength =
+    dimensions.width > 0
+      ? Math.sqrt(dimensions.width ** 2 + dimensions.height ** 2) + 200
+      : 3000;
+
+  const text1 =
+    "🚧 UNDER CONSTRUCTION 🚧 DO NOT CROSS 🚧 CRACKED ENGINEER AT WORK ";
+  const text2 =
+    "⚡ DESIGN MEETS ENGINEERING ⚡ FULLSTACK WIZARDRY ⚡ PERFORMANCE FIRST ";
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full h-full overflow-hidden bg-black"
+    >
+      <SimplexNoise
+        className="absolute"
+        width={2280}
+        height={1020}
+        colors={["#000000", "#ffffff", "#000000", "#ffffff", "#ffffff"]}
+        stepsPerColor={2}
+        softness={0}
+        speed={0.5}
+        scale={0.6}
+      />
+
+      {/* Tape 1 (Top-Left to Bottom-Right) */}
+      <div
+        className="absolute flex items-center justify-center border-black shadow-2xl top-1/2 left-1/2 border-y-4"
+        style={{
+          width: `${diagLength}px`,
+          height: "90px",
+          transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+          background:
+            "repeating-linear-gradient(45deg, #facc15 0 28px, #000 28px 42px)",
+          zIndex: 10,
+        }}
+      >
+        {/* The Solid Black Track for Text */}
+        <div className="w-full bg-black h-[52px] flex items-center border-y-[3px] border-black overflow-hidden">
+          <Marquee text={text1} direction={1} />
+        </div>
+      </div>
+
+      {/* Tape 2 (Bottom-Left to Top-Right) */}
+      <div
+        className="absolute flex items-center justify-center border-black shadow-2xl top-1/2 left-1/2 border-y-4"
+        style={{
+          width: `${diagLength}px`,
+          height: "90px",
+          transform: `translate(-50%, -50%) rotate(${-angle}deg)`,
+          // Invert the stripe angle for perfect mirroring
+          background:
+            "repeating-linear-gradient(-45deg, #facc15 0 28px, #000 28px 42px)",
+          zIndex: 5,
+        }}
+      >
+        {/* The Solid Black Track for Text */}
+        <div className="w-full bg-black h-[52px] flex items-center border-y-[3px] border-black overflow-hidden">
+          <Marquee text={text2} direction={-1} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Marquee({
+  text,
+  direction = 1,
+}: {
+  text: string;
+  direction?: number;
+}) {
+  const content = text.repeat(4);
+  return (
+    <div className="flex w-max">
+      <motion.div
+        animate={{ x: direction === 1 ? [0, "-50%"] : ["-50%", 0] }}
+        transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+        className="flex whitespace-nowrap text-2xl font-black text-[#facc15] tracking-widest uppercase"
+      >
+        <span className="pr-4">{content}</span>
+        <span className="pr-4">{content}</span>
+      </motion.div>
+    </div>
   );
 }
 

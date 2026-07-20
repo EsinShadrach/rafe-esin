@@ -57,30 +57,33 @@ const skills = [
 export default function ExpertiseSection() {
   return (
     <section className="mt-36 expertise-section">
-      <div className="max-w-fit flex gap-4">
+      <div className="flex max-w-fit gap-4">
         <TextGenerateEffect
           words="Expertise"
-          className="text-7xl font-black uppercase"
+          className="font-black uppercase text-7xl"
         />
-        <div className="relative -translate-x-6 -translate-y-2 opacity-75">
+        <div className="relative opacity-75 -translate-x-6 -translate-y-2">
           <SparkleIcon
-            className="w-10 h-10 absolute top-0 left-0 sparkle-animate"
+            className="absolute top-0 left-0 w-10 h-10 sparkle-animate"
             style={{ animationDelay: "0s" }}
+            strokeWidth={1}
           />
           <SparkleIcon
-            className="w-8 h-8 absolute -top-2 left-8 sparkle-animate"
+            className="absolute w-8 h-8 -top-2 left-8 sparkle-animate"
             style={{ animationDelay: "0.6s" }}
+            strokeWidth={1}
           />
           <SparkleIcon
-            className="w-6 h-6 absolute top-6 left-8 sparkle-animate"
+            className="absolute w-6 h-6 top-6 left-8 sparkle-animate"
             style={{ animationDelay: "1.2s" }}
+            strokeWidth={1}
           />
         </div>
       </div>
       <div>
         <TextGenerateEffect
           words="What I bring to the table — from concept to code, and polish to performance."
-          className="text-2xl font-medium max-w-xl opacity-75 italic"
+          className="max-w-xl text-2xl italic font-medium opacity-75"
         />
       </div>
       <div className="mt-36">
@@ -107,9 +110,9 @@ export default function ExpertiseSection() {
                 }}
               >
                 <div className="relative w-full h-full p-2">
-                  <div className="flex flex-col justify-between h-full w-full text-black rounded-lg transition-all duration-300 group-hover:bg-black group-hover:text-white">
-                    <div className="flex max-w-fit justify-center items-center gap-3 mt-6">
-                      <div className="-translate-x-16 opacity-0 group-hover:translate-x-5 group-hover:opacity-100 transition-all duration-300">
+                  <div className="flex flex-col justify-between w-full h-full text-black rounded-lg transition-all duration-300 group-hover:bg-black group-hover:text-white">
+                    <div className="flex items-center justify-center mt-6 max-w-fit gap-3">
+                      <div className="opacity-0 -translate-x-16 group-hover:translate-x-5 group-hover:opacity-100 transition-all duration-300">
                         <ArrowRightIcon className="w-16 h-16" />
                       </div>
                       <div className="transition-all duration-300 -translate-x-16 group-hover:translate-x-5">
@@ -122,7 +125,7 @@ export default function ExpertiseSection() {
                         words={skill.name}
                         className="text-2xl font-medium"
                       />
-                      <div className="max-h-0 overflow-hidden opacity-0 translate-y-4 group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 text-base mt-2">
+                      <div className="mt-2 overflow-hidden text-base opacity-0 max-h-0 translate-y-4 group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                         {skill.description}
                       </div>
                     </div>
@@ -136,7 +139,7 @@ export default function ExpertiseSection() {
       <div className="main-class-project">
         <div className="mt-48 group lg:w-3/4">
           <Link href={"/projects/playcope-web"}>
-            <div className="w-full bg-black overflow-hidden">
+            <div className="w-full overflow-hidden bg-black">
               <Image
                 placeholder="blur"
                 alt="playcope-web"
@@ -145,16 +148,25 @@ export default function ExpertiseSection() {
               />
             </div>
           </Link>
-          <div className="relative overflow-hidden bg-white border border-black border-t-0 p-6 py-7 lg:w-2/3">
+          <div className="relative p-6 py-4 overflow-hidden bg-white border border-t-0 border-black lg:w-2/3">
             <div className="absolute inset-0 bg-black -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
             <div className="relative z-10 group-hover:selection:bg-white group-hover:selection:text-black">
               <TextGenerateEffect
                 words="Puntrr"
-                className="font-bold text-5xl lg:text-7xl transition-all duration-300 group-hover:text-white"
+                className="text-5xl font-bold lg:text-7xl transition-all duration-300 group-hover:text-white"
               />
+              <div className="flex items-center mt-2 text-sm font-bold tracking-widest uppercase gap-3 opacity-80 group-hover:text-white transition-colors duration-300">
+                <span>Sports</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>AI Predictions</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Machine Learning</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Analysis</span>
+              </div>
             </div>
           </div>
-          <div className="bg-white lg:w-1/3 flex">
+          <div className="flex bg-white lg:w-1/3">
             <div className="w-full bg-black">
               <div className="px-0 py-6 overflow-hidden bg-white border border-black hover:-translate-y-3 border-t-transparent group transition-all duration-300 hover:translate-x-3 hover:border-t-black">
                 <div className="flex px-6 text-lg font-semibold gap-1">
@@ -184,7 +196,7 @@ export default function ExpertiseSection() {
           </div>
         </div>
         {/* Playcope */}
-        <div className="lg:w-1/2 lg:-translate-y-56 lg:ml-auto group">
+        <div className="lg:w-1/2 lg:-translate-y-48 lg:ml-auto group">
           <div className="overflow-hidden bg-black">
             <Image
               alt="Playcope"
@@ -194,17 +206,26 @@ export default function ExpertiseSection() {
             />
           </div>
 
-          <div className="relative overflow-hidden bg-white border border-black border-t-0 p-6 py-7">
+          <div className="relative p-6 py-4 overflow-hidden bg-white border border-t-0 border-black">
             <div className="absolute inset-0 bg-black -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1] " />
             <div className="relative z-10 group-hover:selection:bg-white group-hover:selection:text-black">
               <TextGenerateEffect
                 words="Playcope"
-                className="font-bold text-5xl lg:text-7xl transition-all duration-300 group-hover:text-white"
+                className="text-5xl font-bold lg:text-7xl transition-all duration-300 group-hover:text-white"
               />
+              <div className="flex items-center mt-2 text-sm font-bold tracking-widest uppercase gap-3 opacity-80 group-hover:text-white transition-colors duration-300">
+                <span>Sports</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Data Ecosystem</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Data Aggregation</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Data Labeling</span>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white w-1/2 flex max-lg:mx-auto lg:ml-auto">
+          <div className="flex w-1/2 bg-white max-lg:mx-auto lg:ml-auto">
             <div className="w-full bg-black">
               <div className="px-0 py-6 overflow-hidden bg-white border border-black hover:-translate-y-3 border-t-transparent group transition-all duration-300 hover:translate-x-3 hover:border-t-black">
                 <div className="flex px-6 text-lg font-semibold gap-1">
@@ -231,17 +252,24 @@ export default function ExpertiseSection() {
             />
           </div>
 
-          <div className="relative overflow-hidden bg-white border border-black border-t-0 p-6 py-7">
+          <div className="relative p-3 py-3 overflow-hidden bg-white border border-t-0 border-black">
             <div className="absolute inset-0 bg-black -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.22,1,0.36,1]" />
             <div className="relative z-10 group-hover:selection:bg-white group-hover:selection:text-black">
               <TextGenerateEffect
                 words="SaveCircle"
-                className="font-bold text-5xl lg:text-7xl transition-all duration-300 group-hover:text-white"
+                className="text-5xl font-bold lg:text-7xl transition-all duration-300 group-hover:text-white"
               />
+              <div className="flex items-center mt-2 text-sm font-bold tracking-widest uppercase gap-3 opacity-80 group-hover:text-white transition-colors duration-300">
+                <span>Finance</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>FinTech</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-black group-hover:bg-white transition-colors duration-300" />
+                <span>Investment & Planning</span>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white lg:w-1/2 flex">
+          <div className="flex bg-white lg:w-1/2">
             <div className="w-full bg-black">
               <div className="px-0 py-6 overflow-hidden bg-white border border-black hover:-translate-y-3 border-t-transparent group transition-all duration-300 hover:translate-x-3 hover:border-t-black">
                 <div className="flex px-6 text-lg font-semibold gap-1">

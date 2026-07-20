@@ -29,7 +29,7 @@ export const TextGenerateEffect = ({
         {
           duration: duration ? duration : 1,
           delay: stagger(0.2),
-        }
+        },
       );
     } else {
       animate(
@@ -40,7 +40,7 @@ export const TextGenerateEffect = ({
         },
         {
           duration: 0,
-        }
+        },
       );
     }
   }, [isInView, animate, filter, duration]);
