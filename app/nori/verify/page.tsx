@@ -1,15 +1,23 @@
-// app/nori/verify/page.tsx
 import { Client, Account } from "appwrite";
 
-const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_NORI_APP_WRITE_ENDPOINT!)
-  .setProject(process.env.NEXT_PUBLIC_NORI_APP_WRITE_PROJECT_ID!);
+let account: Account | null = null;
 
-const account = new Account(client);
+function getAccount() {
+  if (!account) {
+    const endpoint = process.env.NEXT_PUBLIC_NORI_APP_WRITE_ENDPOINT;
+    const projectId = process.env.NEXT_PUBLIC_NORI_APP_WRITE_PROJECT_ID;
+    if (!endpoint || !projectId) return null;
+    const client = new Client().setEndpoint(endpoint).setProject(projectId);
+    account = new Account(client);
+  }
+  return account;
+}
 
 const verifyEmail = async (userId: string, secret: string) => {
   try {
-    const response = await account.updateVerification(userId, secret);
+    const acct = getAccount();
+    if (!acct) return null;
+    const response = await acct.updateVerification(userId, secret);
     console.log("User verified");
     return response;
   } catch (error) {
